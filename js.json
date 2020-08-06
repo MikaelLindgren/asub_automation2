@@ -1,0 +1,44 @@
+{
+    "query": [
+      {
+        "code": "Alue",
+        "selection": {
+          "filter": "item",
+          "values": [
+            "MK01",
+            "MK02",
+            "MK05",
+            "MK07",
+            "MK08",
+            "MK09",
+            "MK04",
+            "MK06",
+            "MK13",
+            "MK14",
+            "MK15",
+            "MK10",
+            "MK11",
+            "MK12",
+            "MK16",
+            "MK17",
+            "MK18",
+            "MK19",
+            "MK21"
+          ]
+        }
+      },
+      {
+        "code": "Tiedot",
+        "selection": {
+          "filter": "item",
+          "values": [
+            "GDPcap",
+            "EP"
+          ]
+        }
+      }
+    ],
+    "response": {
+      "format": "json-stat"
+    }
+  }
