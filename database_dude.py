@@ -71,6 +71,40 @@ def actually_add(entries, DB_NAME):
         db.commit()
     print("Finished adding!")
 
+#denna funktionen hämtar de variablerna som finns i en table
+def get_values_from_table(table_name):
+    cursor.execute("SELECT TABLE_NAME, COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS")
+    touples = cursor.fetchall() 
+    values_list = []
+    for t in touples:
+        if (table_name in t):
+            values_list.append(t[1])
+            print(t)
+    print(values_list)
+    print(touples[:5])
+    return values_list
+
+def get_table(table_name, DB_NAME):
+    cursor.execute("USE {}".format(DB_NAME))
+    cursor.execute("SELECT * FROM {}".format(table_name))
+    result = cursor.fetchall()
+    print(result[:4])
+    return result
+
+def parse_data(values, data):
+    values = ["id", "Region", "År", "Uppgifter", "Värden"]
+    parsed = {}
+    for v in values:
+        parsed[v] = []
+    for d in data:
+        count = 0
+        for v in values:
+            parsed[v].append(d[count])
+            count = count + 1
+    for k in parsed.keys():
+        print("\n" + k)
+        print(parsed[k][:10])
+    return parsed
 
 
 
